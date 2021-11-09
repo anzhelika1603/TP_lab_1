@@ -142,6 +142,7 @@
     <ClInclude Include="Deque.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="helper.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
