@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Deque.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="helper.h" />
     <ClInclude Include="Queue.h" />
