@@ -7,7 +7,7 @@
 
 using namespace std; 
 
-template <typename T>
+template <class T>
 class Queue
 {
 protected:
@@ -32,7 +32,7 @@ public:
 	Queue<T>& operator=(const Queue<T>&);
 };
 
-template <typename T>
+template <class T>
 Queue<T>::Queue(const Queue<T>& queue)
 {
 	tail = NULL;
@@ -46,13 +46,13 @@ Queue<T>::Queue(const Queue<T>& queue)
 	}
 }
 
-template <typename T>
+template <class T>
 Queue<T>::~Queue()
 {
 	clear();
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::push_back(T data)
 {
 	Element<T>* e = new Element<T>;
@@ -62,7 +62,7 @@ void Queue<T>::push_back(T data)
 	size++;
 }
 
-template <typename T>
+template <class T>
 T Queue<T>::pop_front() {
 	string err = "Очередь пуста, нечего извлекать";
 	if (isEmpty())
@@ -86,7 +86,7 @@ T Queue<T>::pop_front() {
 	return data;
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::clear()
 {
 	for (int i = 0; i < size; i++)
@@ -100,7 +100,7 @@ void Queue<T>::clear()
 	size = 0;
 }
 
-template <typename T>
+template <class T>
 Queue<T>& Queue<T>::operator=(const Queue<T>& queue)
 {
 	if (this == &queue)
@@ -118,12 +118,12 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& queue)
 	return *this;
 }
 
-template <typename T>
+template <class T>
 bool Queue<T>::isEmpty() {
 	return size == 0;
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::printToConsole() {
 	if (size == 0)
 		cout << "Очередь пуста";
@@ -138,7 +138,7 @@ void Queue<T>::printToConsole() {
 	cout << endl;
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::printToFile(ofstream& out) {
 	out << size << endl;
 	for (int i = 0; i < size; i++)
@@ -150,7 +150,7 @@ void Queue<T>::printToFile(ofstream& out) {
 	}
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::inputFromConsole() {
 	clear();
 	cout << "Введите размер очереди: ";
@@ -163,7 +163,7 @@ void Queue<T>::inputFromConsole() {
 	}
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::inputFromFile(ifstream& out) {
 	string err = "Файл не может быть корректно прочитан";
 	string tmpS;
@@ -177,7 +177,7 @@ void Queue<T>::inputFromFile(ifstream& out) {
 	}
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::merge(Queue& queue) {
 	Queue tmp(queue);
 	for (int i = 0; i < tmp.size; i++) {
