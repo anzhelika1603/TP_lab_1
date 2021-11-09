@@ -14,7 +14,7 @@ protected:
 	Element<T>* tail;
 	int size;
 public:
-	Queue() : size(0), tail(NULL) {};
+	Queue() : size(0), tail(nullptr) {};
 	Queue(const Queue& queue);
 	virtual ~Queue();
 	void push_back(T data);
@@ -36,7 +36,7 @@ public:
 template <class T>
 Queue<T>::Queue(const Queue<T>& queue)
 {
-	tail = NULL;
+	tail = nullptr;
 	size = 0;
 	for (int i = 0; i < queue.size; i++)
 	{
@@ -74,7 +74,7 @@ T Queue<T>::pop_front() {
 	{
 		data = e->data;
 		delete e;
-		this->tail = NULL;
+		this->tail = nullptr;
 		this->size--;
 		return data;
 	}
@@ -82,7 +82,7 @@ T Queue<T>::pop_front() {
 		e = e->prev;
 	data = e->prev->data;
 	delete e->prev;
-	e->prev = NULL;
+	e->prev = nullptr;
 	this->size--;
 	return data;
 }
@@ -97,7 +97,7 @@ void Queue<T>::clear()
 			e = e->prev;
 		delete e;
 	}
-	tail = NULL;
+	tail = nullptr;
 	size = 0;
 }
 
@@ -106,7 +106,7 @@ Queue<T>& Queue<T>::operator=(const Queue<T>& queue)
 {
 	if (this == &queue)
 		return *this;
-	tail = NULL;
+	tail = nullptr;
 	size = 0;
 	clear();
 	for (int i = 0; i < queue.size; i++)
@@ -170,8 +170,8 @@ void Queue<T>::inputFromFile(ifstream& out) {
 	string tmpS;
 	if (!getline(out, tmpS))
 		throw err;
-	size = (checkStringToInt(tmpS) ? stoi(tmpS) : 0);
-	for (int i = 0; i < size; i++) {
+	int tmpSize = (checkStringToInt(tmpS) ? stoi(tmpS) : 0);
+	for (int i = 0; i < tmpSize; i++) {
 		if (!getline(out, tmpS))
 			throw err;
 		push_back(checkStringToInt(tmpS) ? stoi(tmpS) : 0);
@@ -191,5 +191,12 @@ void Queue<T>::merge(Queue& queue) {
 
 template <class T>
 void Queue<T>::sort() {
-
+	for (int i = 1; i < size; i++) {
+		Element<T>* e1 = tail;
+		for (int j = 0; j < size - i; j++) {
+			if (e1->prev->data > e1->data)
+				swap(e1->prev->data, e1->data);
+			e1 = e1->prev;
+		}		
+	}		
 }
