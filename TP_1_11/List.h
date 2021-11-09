@@ -14,11 +14,12 @@ public:
 	void clear() { Queue<T>::clear(); }
 	bool isEmpty() { return Queue<T>::isEmpty(); }
 	void printToConsole();
-	void printToFile(ofstream& out) { Queue<T>::printToFile(); }
-	void inputFromFile(ifstream& out) { Queue<T>::inputFromFile(); }
+	void printToFile(ofstream& out) { Queue<T>::printToFile(out); }
+	void inputFromFile(ifstream& in) { Queue<T>::inputFromFile(in); }
 	void inputFromConsole() { Queue<T>::inputFromConsole(); }
 	void merge(List<T>& list) { Queue<T>::merge(list); }
 	void getSize() { Queue<T>::getSize(); }
+	void sort() { Queue<T>::sort(); }
 
 	List<T>& operator=(const List<T>& list);
 	T& operator[](int index);

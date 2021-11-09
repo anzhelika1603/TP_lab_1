@@ -26,6 +26,7 @@ public:
 	void inputFromFile(ifstream& out);
 	void inputFromConsole();
 	void merge(Queue& queue);
+	void sort();
 
 	void getSize() { return size; }
 
@@ -146,7 +147,7 @@ void Queue<T>::printToFile(ofstream& out) {
 		Element<T>* e = tail;
 		for (int j = 0; j < size - 1 - i; j++)
 			e = e->prev;
-		cout << e->data << endl;
+		out << e->data << endl;
 	}
 }
 
@@ -186,4 +187,9 @@ void Queue<T>::merge(Queue& queue) {
 			e = e->prev;
 		push_back(e->data);
 	}
+}
+
+template <class T>
+void Queue<T>::sort() {
+
 }

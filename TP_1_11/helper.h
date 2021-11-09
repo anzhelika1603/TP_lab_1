@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 
 template <typename T>
 T safeInput(T minInput, T maxInput) {
@@ -23,3 +24,5 @@ T safeInput(T minInput, T maxInput) {
 }
 
 bool checkStringToInt(std::string s);
+bool InputInFileName(std::string& filename);
+void InputOutFileName(std::string& filename);
