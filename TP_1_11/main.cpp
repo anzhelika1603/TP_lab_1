@@ -196,7 +196,7 @@ void workWithDeque(Deque<int>& deque) {
 void workWithList(List<int>& list) {
 	bool isExit = false;
 	while (!isExit) {
-		cout << "Работа с деком" << endl;
+		cout << "Работа со списком" << endl;
 		cout << "1. Добавить элемент в начало" << endl;
 		cout << "2. Добавить элемент в конец" << endl;
 		cout << "3. Извлечь элемент с начала" << endl;

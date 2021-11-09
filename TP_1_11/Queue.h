@@ -14,9 +14,9 @@ protected:
 	Element<T>* tail;
 	int size;
 public:
-	Queue() : size(0), tail(nullptr) {};
+	Queue() : size(0), tail(nullptr) { cout << "Вызван конструктор Queue" << endl; }
 	Queue(const Queue& queue);
-	virtual ~Queue();
+	~Queue();
 	void push_back(T data);
 	T pop_front();
 	void clear();
@@ -24,7 +24,6 @@ public:
 	void printToConsole();
 	void printToFile(ofstream& out);
 	void inputFromFile(ifstream& out);
-	void inputFromConsole();
 	void merge(Queue& queue);
 	void sort();
 
@@ -45,11 +44,13 @@ Queue<T>::Queue(const Queue<T>& queue)
 			e = e->prev;
 		push_back(e->data);
 	}
+	cout << "Вызван конструктор копирования Queue" << endl;
 }
 
 template <class T>
 Queue<T>::~Queue()
 {
+	cout << "Вызван деструктор копирования Queue" << endl;
 	clear();
 }
 
@@ -148,19 +149,6 @@ void Queue<T>::printToFile(ofstream& out) {
 		for (int j = 0; j < size - 1 - i; j++)
 			e = e->prev;
 		out << e->data << endl;
-	}
-}
-
-template <class T>
-void Queue<T>::inputFromConsole() {
-	clear();
-	cout << "Введите размер очереди: ";
-	size = safeInput(T(0), T(INT32_MAX));
-	for (int i = 0; i < size; i++) {
-		T tmp;
-		cout << "Введите " << i + 1 << " элемент очереди: ";
-		tmp = safeInput(T(0), T(INT32_MAX));
-		push_back(tmp);
 	}
 }
 

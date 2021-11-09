@@ -5,8 +5,9 @@ template <class T>
 class Stack : private Queue<T>
 {
 public:
-	Stack() : Queue<T>() {}
-	Stack(const Stack<T>& stack) : Queue<T>(stack) {}
+	Stack() : Queue<T>() { cout << "Вызван конструктор Stack" << endl; }
+	Stack(const Stack<T>& stack) : Queue<T>(stack) { cout << "Вызван конструктор копирования Stack" << endl; }
+	~Stack() { cout << "Вызван деструктор Stack" << endl; }
 	void push_back(T data) { Queue<T>::push_back(data); }
 	T pop_back();
 	void clear() { Queue<T>::clear(); }
@@ -14,7 +15,6 @@ public:
 	void printToConsole();
 	void printToFile(ofstream& out) { Queue<T>::printToFile(out); }
 	void inputFromFile(ifstream& in) { Queue<T>::inputFromFile(in); }
-	void inputFromConsole() { Queue<T>::inputFromConsole(); }
 	void merge(Stack<T>& stack) { Queue<T>::merge(stack); }
 	void getSize() { Queue<T>::getSize(); }
 	void sort() { Queue<T>::sort(); }

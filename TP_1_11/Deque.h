@@ -5,8 +5,9 @@ template <class T>
 class Deque : private Queue<T>
 {
 public:
-	Deque() : Queue<T>() {};
-	Deque(const Deque<T>& deque) : Queue<T>(deque) {}
+	Deque() : Queue<T>() { cout << "Вызван конструктор Deque" << endl; }
+	Deque(const Stack<T>& stack) : Queue<T>(stack) { cout << "Вызван конструктор копирования Deque" << endl; }
+	~Deque() { cout << "Вызван деструктор Deque" << endl; }
 	void push_font(T data);
 	void push_back(T data) { Queue<T>::push_back(data); }
 	T pop_front() { return Queue<T>::pop_front(); }
@@ -16,7 +17,6 @@ public:
 	void printToConsole();
 	void printToFile(ofstream& out) { Queue<T>::printToFile(out); }
 	void inputFromFile(ifstream& in) { Queue<T>::inputFromFile(in); }
-	void inputFromConsole() { Queue<T>::inputFromConsole(); }
 	void merge(Deque<T>& deque) { Queue<T>::merge(deque); }
 	void getSize() { Queue<T>::getSize(); }
 	void sort() { Queue<T>::sort(); }

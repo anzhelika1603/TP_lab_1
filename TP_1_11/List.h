@@ -5,8 +5,9 @@ template <class T>
 class List : private Queue<T>
 {
 public:
-	List() : Queue<T>() {};
-	List(const List<T>& list) : Queue<T>(list) {}
+	List() : Queue<T>() { cout << "Вызван конструктор List" << endl; }
+	List(const Stack<T>& stack) : Queue<T>(stack) { cout << "Вызван конструктор копирования List" << endl; }
+	~List() { cout << "Вызван деструктор List" << endl; }
 	void push_font(T data);
 	void push_back(T data) { Queue<T>::push_back(data); }
 	T pop_front() { return Queue<T>::pop_front(); }
@@ -16,7 +17,6 @@ public:
 	void printToConsole();
 	void printToFile(ofstream& out) { Queue<T>::printToFile(out); }
 	void inputFromFile(ifstream& in) { Queue<T>::inputFromFile(in); }
-	void inputFromConsole() { Queue<T>::inputFromConsole(); }
 	void merge(List<T>& list) { Queue<T>::merge(list); }
 	void getSize() { Queue<T>::getSize(); }
 	void sort() { Queue<T>::sort(); }
