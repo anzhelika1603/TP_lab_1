@@ -206,7 +206,7 @@ void workWithList(List<int>& list) {
 		cout << "7. Отсортировать" << endl;
 		cout << "0. Назад" << endl;
 		cout << "Выберете пункт меню: ";
-		int method = safeInput(0, 6);
+		int method = safeInput(0, 7);
 		int tmp;
 		switch (method)
 		{
